@@ -1,0 +1,13 @@
+cradle:
+  stack:
+    - path: "./src"
+      component: "guess-number-game:lib"
+
+    - path: "./app/Main.hs"
+      component: "guess-number-game:exe:guess-number-game-exe"
+
+    - path: "./app/Paths_guess_number_game.hs"
+      component: "guess-number-game:exe:guess-number-game-exe"
+
+    - path: "./test"
+      component: "guess-number-game:test:guess-number-game-test"
