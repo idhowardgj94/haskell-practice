@@ -30,14 +30,23 @@ personAddressL = Lens
     , lensModify = modifyPersonAddress
     }
 
+addressCityL :: Lens Address Text
+addressCityL = Lens
+    { lensGetter = addressCity
+    , lensModify = modifyAddressCity 
+    }
 -- practice
 personCityL :: Lens Person Text
 personCityL = Lens
      { lensGetter = addressCity . personAddress
      , lensModify = modifyPersonCity
      }
+-- leverage with composeLens
+personCityL' :: Lens Person Text
+personCityL' = personAddressL `composeLens` addressCityL 
 
--- setPersonCityOL :: Text -> Person -> Person 
+setPersonCity' :: Text -> Person -> Person
+setPersonCity' city = lensModify personCityL (const city)
 oldStyleLenses :: IO ()
 oldStyleLenses = do
     putStrLn ""
@@ -46,5 +55,7 @@ oldStyleLenses = do
     let person = Person { personName = "Howard", personAddress = address }
     print (lensGetter personAddressL person)
     print (lensGetter personCityL person)
-    let personToTaipei = lensModify personCityL (const "Taipei") person
-    putStrLn "moveToTaipei: " <> print personToTaipei
+    let person' = lensModify personCityL' (const "Taipei") person
+    let person'' = setPersonCity' "Taipei" person 
+    putStrLn "moveToTaipei: " <> print person'
+    putStrLn "use setter: " <> print person''
