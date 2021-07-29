@@ -27,6 +27,7 @@ library
   exposed-modules:
       Lib
       Lib.Basic
+      Lib.Lens
       Lib.OldFashionLens
       Model
   other-modules:

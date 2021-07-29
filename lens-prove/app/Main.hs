@@ -8,6 +8,7 @@ import Lib.Basic
 import Lib.OldFashionLens
 import Data.Text
 import Model
+import Lib.Lens
 
 main :: IO ()
 main = do
@@ -15,3 +16,4 @@ main = do
     basic
     useModifyFunc
     oldStyleLenses
+    useLaarhovenLenses
