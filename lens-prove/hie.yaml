@@ -1,0 +1,13 @@
+cradle:
+  stack:
+    - path: "./src"
+      component: "lens-prove:lib"
+
+    - path: "./app/Main.hs"
+      component: "lens-prove:exe:lens-prove-exe"
+
+    - path: "./app/Paths_lens_prove.hs"
+      component: "lens-prove:exe:lens-prove-exe"
+
+    - path: "./test"
+      component: "lens-prove:test:lens-prove-test"
