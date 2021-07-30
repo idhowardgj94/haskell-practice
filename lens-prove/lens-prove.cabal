@@ -28,6 +28,7 @@ library
       Lib
       Lib.Basic
       Lib.Lens
+      Lib.LensProgress
       Lib.OldFashionLens
       Model
   other-modules:
