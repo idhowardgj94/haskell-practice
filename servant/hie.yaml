@@ -1,0 +1,13 @@
+cradle:
+  stack:
+    - path: "./src"
+      component: "myproj:lib"
+
+    - path: "./app/Main.hs"
+      component: "myproj:exe:myproj-exe"
+
+    - path: "./app/Paths_myproj.hs"
+      component: "myproj:exe:myproj-exe"
+
+    - path: "./test"
+      component: "myproj:test:myproj-test"
