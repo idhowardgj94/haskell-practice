@@ -35,6 +35,7 @@ import Text.Blaze.Html.Renderer.Utf8
 import Servant.Types.SourceT (source)
 import qualified Data.Aeson.Parser
 import qualified Text.Blaze.Html
-
+runApp :: Application
+runApp = serve serverApi services
 main :: IO ()
-main = run 8080 userApp
+main = run 8080 runApp

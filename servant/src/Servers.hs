@@ -38,14 +38,14 @@ data LoginRequest = LoginRequest {
     user :: String,
     password :: String
 } deriving (Eq, Show, Generic)
-
+instance FromJSON LoginRequest
 data User = User {
     name :: String,
     age :: Int,
     email :: String,
     registration_date :: String 
 } deriving (Eq, Show, Generic)
-instance ToJSON User;
+instance ToJSON User
 
 users1 :: User
 users1 = User {
