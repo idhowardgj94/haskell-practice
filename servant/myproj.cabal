@@ -24,6 +24,7 @@ source-repository head
 
 library
   exposed-modules:
+      Database
       Lib
       Servers
   other-modules:
@@ -39,9 +40,13 @@ library
     , blaze-markup
     , bytestring
     , directory
+    , http-client
     , http-media
     , mtl
+    , postgresql-simple
+    , resource-pool
     , servant
+    , servant-client
     , servant-server
     , string-conversions
     , text
@@ -66,10 +71,14 @@ executable myproj-exe
     , blaze-markup
     , bytestring
     , directory
+    , http-client
     , http-media
     , mtl
     , myproj
+    , postgresql-simple
+    , resource-pool
     , servant
+    , servant-client
     , servant-server
     , string-conversions
     , text
@@ -98,10 +107,14 @@ test-suite myproj-test
     , hspec
     , hspec-wai
     , hspec-wai-json
+    , http-client
     , http-media
     , mtl
     , myproj
+    , postgresql-simple
+    , resource-pool
     , servant
+    , servant-client
     , servant-server
     , string-conversions
     , text

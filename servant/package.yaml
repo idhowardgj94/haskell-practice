@@ -36,6 +36,11 @@ dependencies:
 - blaze-markup
 - directory 
 - attoparsec
+- resource-pool
+- postgresql-simple
+- http-client
+- warp
+- servant-client
 
 library:
   source-dirs: src

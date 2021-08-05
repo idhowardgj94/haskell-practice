@@ -23,19 +23,12 @@ type UserApi = "users" :> QueryParam "sortby" String :> Get '[JSON] (Maybe User)
 
 type LoginApi = "login" :> ReqBody '[JSON] LoginRequest :> Post '[JSON] Value
 
--- userApi :: Proxy UserApi 
--- userApi = Proxy 
-
 userService :: Server UserApi
 userService = users 
     where users :: Maybe String -> Handler (Maybe User)
           users (Just "howard") = return $ Just users1
           users (Just "ricky") = return $ Just users2
           users _ = return Nothing 
-
--- login service below
--- loginApi :: Proxy LoginApi
--- loginApi = Proxy
 
 loginService :: Server LoginApi
 loginService = login
