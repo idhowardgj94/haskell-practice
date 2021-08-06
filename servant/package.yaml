@@ -37,7 +37,7 @@ dependencies:
 - directory 
 - attoparsec
 - resource-pool
-- postgresql-simple
+- mysql-simple
 - http-client
 - warp
 - servant-client

@@ -24,9 +24,9 @@ source-repository head
 
 library
   exposed-modules:
-      Database
       Lib
       Servers
+      SQLDatabase
   other-modules:
       Paths_myproj
   hs-source-dirs:
@@ -43,7 +43,7 @@ library
     , http-client
     , http-media
     , mtl
-    , postgresql-simple
+    , mysql-simple
     , resource-pool
     , servant
     , servant-client
@@ -75,7 +75,7 @@ executable myproj-exe
     , http-media
     , mtl
     , myproj
-    , postgresql-simple
+    , mysql-simple
     , resource-pool
     , servant
     , servant-client
@@ -111,7 +111,7 @@ test-suite myproj-test
     , http-media
     , mtl
     , myproj
-    , postgresql-simple
+    , mysql-simple
     , resource-pool
     , servant
     , servant-client

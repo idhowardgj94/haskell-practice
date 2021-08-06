@@ -10,10 +10,8 @@
 module Main where
 
 import Lib
-
 import Prelude ()
 import Prelude.Compat
-
 import Control.Monad.Except
 import Control.Monad.Reader
 import Data.Aeson
@@ -35,7 +33,27 @@ import Text.Blaze.Html.Renderer.Utf8
 import Servant.Types.SourceT (source)
 import qualified Data.Aeson.Parser
 import qualified Text.Blaze.Html
-runApp :: Application
-runApp = serve serverApi services
+import Data.Pool
+import Database.MySQL.Simple
+    ( defaultConnectInfo,
+      ConnectInfo(connectHost, connectUser, connectDatabase),
+      Connection )
+import Database.MySQL.Simple.Param
+import SQLDatabase ( initConnectionPool )
+
+connInfo :: ConnectInfo
+connInfo = defaultConnectInfo {
+              connectHost = "127.0.0.1",
+              connectUser = "test",
+              connectDatabase = "test"
+            }
+
+
+runApp :: Pool Connection -> Application
+runApp conn = serve serverApi $ server conn
+
 main :: IO ()
-main = run 8080 runApp
+main = do
+    -- todo: read from config
+    pool <- initConnectionPool connInfo
+    run 8080 (runApp pool)
