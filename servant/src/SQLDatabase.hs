@@ -51,8 +51,8 @@ server conns =  postMessage :<|> getMessages :<|> helloworld
           getMessages :: Handler String
           getMessages =  liftIO $
             withResource conns $ \conn -> do
-              xs <- query_ conn "SELECT name FROM users WHERE name='howardgj94'"
-              return $ foldl (\p (Only c) -> p <> ", " <> c) "" xs
+              xs <- query_ conn "SELECT * FROM users WHERE name='howardgj94'"
+              return $ foldl (\p (id, name, password , login_hash) -> p <> ", " <> show (id :: Int) <> ", " <> (name :: String) <> (password :: String) <> (login_hash :: String )) "" xs
           helloworld :: Handler String
           helloworld = return "hello, world"
 
